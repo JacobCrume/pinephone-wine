@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+apt install figlet
+figlet Wine on Pinephone Installer
+
+echo This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed.
+echo 
+echo First we need to install some dependencies.
+
+apt install -y schroot deboostrap
+
+echo Creating folders
+mkdir /srv/chroot
+mkdir /srv/chroot/debian-armhf
+
+
+echo Running debootstrap
+sudo debootstrap --arch armhf --foreign buster /srv/chroot/debian-armhf http://debian.xtdv.net/debian
+
+echo Entering chroot jail
+sudo chroot "/srv/chroot/debian-armhf" /debootstrap/debootstrap --second-stage
+
+echo Creating configuration files
+cp debian-armhf.conf /etc/schroot/chroot.d
+cp nssdatabases /etc/schroot/desktop/nssdatabases
