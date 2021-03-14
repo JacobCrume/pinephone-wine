@@ -2,8 +2,8 @@
 
 echo "Updating chroot"
 apt update && apt upgrade
-apt install git wget cmake build-essential python3
-apt install gcc-arm-linux-gnueabihf
+apt install -y git wget cmake build-essential python3
+apt install -y gcc-arm-linux-gnueabihf
 
 echo "Downloading Box86"
 git clone https://github.com/ptitSeb/box86
