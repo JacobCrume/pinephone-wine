@@ -9,8 +9,6 @@ apt install figlet
 figlet Wine on Pinephone Installer
 
 echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed."
-echo"You need to input your root password. This is used to set the same password for the chroot root account."
-read -p "Password: " password
 echo "First we need to install some dependencies."
 
 apt install -y schroot deboostrap
