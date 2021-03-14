@@ -23,15 +23,17 @@ mkdir /srv/chroot/debian-armhf
 
 
 echo "Running debootstrap"
-sudo debootstrap --arch armhf --foreign buster /srv/chroot/debian-armhf http://debian.xtdv.net/debian
+debootstrap --arch armhf --foreign buster /srv/chroot/debian-armhf http://debian.xtdv.net/debian
 
 echo "Entering chroot jail"
-sudo chroot "/srv/chroot/debian-armhf" /debootstrap/debootstrap --second-stage
+chroot "/srv/chroot/debian-armhf" /debootstrap/debootstrap --second-stage
 
 echo "Creating configuration files"
 cp debian-armhf.conf /etc/schroot/chroot.d
 cp nssdatabases /etc/schroot/desktop/nssdatabases
 cp stateoverride /srv/chroot/debian-armhf/var/lib/dpkg/statoverride
-sudo schroot -c debian-armhf 
 
-
+echo "Entering chroot"
+mkdir /srv/chroot/debian-armhf/script
+cp wine-chroot.sh /srv/chroot/debian-armhf/script
+schroot -c debian-armhf /script/wine-chroot.sh
