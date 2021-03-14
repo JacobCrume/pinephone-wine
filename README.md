@@ -13,3 +13,7 @@ Currently, only the Pinephone is supported. You must be running a fresh install 
 1. Download the latest script on the releases page to your download folder.
 2. Run the script with this command: `sudo bash Downloads/pinephone-wine-*.sh`
 3. This will guide you through the process of installing wine.
+
+## Usage Instructions
+
+This is very similar to using wine on the desktop. Just use the `wine` command as you would normally, no need to chroot or worry about any of that stuff. 
