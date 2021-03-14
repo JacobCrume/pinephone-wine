@@ -1,5 +1,7 @@
 #!/bin/bash
 
+account=$USER
+
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
@@ -30,7 +32,6 @@ echo "Creating configuration files"
 cp debian-armhf.conf /etc/schroot/chroot.d
 cp nssdatabases /etc/schroot/desktop/nssdatabases
 cp stateoverride /srv/chroot/debian-armhf/var/lib/dpkg/statoverride
-echo -e 'export LANGUAGE="C" /n export LC_ALL="C" /n export DISPLAY=:0' | tee -a ~/.bashrc >/dev/null
+sudo schroot -c debian-armhf 
 
-echo "Setting password for chroot."
-echo "root:$password" | chpasswd
+
