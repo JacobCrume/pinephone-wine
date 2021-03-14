@@ -1,7 +1,5 @@
 #!/bin/bash
 
-account=$USER
-
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
@@ -37,3 +35,4 @@ echo "Entering chroot"
 mkdir /srv/chroot/debian-armhf/script
 cp wine-chroot.sh /srv/chroot/debian-armhf/script
 schroot -c debian-armhf /script/wine-chroot.sh
+schroot -c debian-armhf adduser mobian
