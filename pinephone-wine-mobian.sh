@@ -32,5 +32,5 @@ cp stateoverride /srv/chroot/debian-armhf/var/lib/dpkg/statoverride
 echo "Entering chroot"
 mkdir /srv/chroot/debian-armhf/script
 cp wine-chroot.sh /srv/chroot/debian-armhf/script
-schroot -c debian-armhf /script/wine-chroot.sh
+schroot -c debian-armhf /script/wine-chroot-1.sh
 schroot -c debian-armhf adduser mobian
