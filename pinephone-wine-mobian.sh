@@ -42,4 +42,9 @@ schroot -c debian-armhf /script/wine-chroot-3.sh
 schroot -c debian-armhf /script/wine-chroot-4.sh
 
 echo "alias wine=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wine" >> ~/.bashrc
+echo "alias winecfg=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/winecfg" >> ~/.bashrc
+echo "alias wineboot=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wineboot" >> ~/.bashrc
+echo "alias wineconsole=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wineconsole" >> ~/.bashrc
+echo "alias winefile=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/winefile" >> ~/.bashrc
+echo "alias winemine=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/winemine" >> ~/.bashrc
 echo "Done!"
