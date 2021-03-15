@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed."
+echo "This script will install wine on your Pinephone. It should take less than 1 hour depending on you internet connection speed."
 echo "First we need to install some dependencies."
 sleep 5
 
