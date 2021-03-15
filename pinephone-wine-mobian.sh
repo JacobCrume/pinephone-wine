@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "This script will install wine on your Pinephone. It should take less than 1 hour depending on you internet connection speed."
+echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed."
 echo "First we need to install some dependencies."
 sleep 5
 
@@ -47,7 +47,6 @@ echo "Installing wine dependencies"
 apt install -y zenity
 adduser mobian
 su - mobian
-printf 'export LANGUAGE="C"\nexport LC_ALL="C"\nexport DISPLAY=:0' >> ~/.bashrc
 EOF
 cat << EOF | schroot -c debian-armhf
 su - mobian
@@ -66,10 +65,4 @@ echo "Extracting wine"
 tar zxvf wine.tgz
 EOF
 
-echo "alias wine=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wine" >> ~/.bashrc
-echo "alias winecfg=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/winecfg" >> ~/.bashrc
-echo "alias wineboot=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wineboot" >> ~/.bashrc
-echo "alias wineconsole=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wineconsole" >> ~/.bashrc
-echo "alias winefile=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/winefile" >> ~/.bashrc
-echo "alias winemine=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/winemine" >> ~/.bashrc
 echo "Done!"
