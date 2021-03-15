@@ -5,31 +5,34 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-apt install figlet
-figlet Wine on Pinephone Installer
-
 echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed."
 echo "First we need to install some dependencies."
+sleep 10
 
 apt install -y schroot debootstrap
 
 echo "Creating folders"
+sleep 5
 mkdir /srv/chroot
 mkdir /srv/chroot/debian-armhf
 
 
 echo "Running debootstrap"
+sleep 2
 debootstrap --arch armhf --foreign buster /srv/chroot/debian-armhf http://debian.xtdv.net/debian
 
 echo "Entering chroot jail"
+sleep 2
 chroot "/srv/chroot/debian-armhf" /debootstrap/debootstrap --second-stage
 
 echo "Creating configuration files"
+sleep 2
 cp debian-armhf.conf /etc/schroot/chroot.d
 cp nssdatabases /etc/schroot/desktop/nssdatabases
 cp stateoverride /srv/chroot/debian-armhf/var/lib/dpkg/statoverride
 
 echo "Entering chroot"
+sleep 2
 mkdir /srv/chroot/debian-armhf/script
 cp wine-chroot-1.sh /srv/chroot/debian-armhf/script
 cp wine-chroot-2.sh /srv/chroot/debian-armhf/script
