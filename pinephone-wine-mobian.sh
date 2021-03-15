@@ -11,7 +11,7 @@ figlet Wine on Pinephone Installer
 echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed."
 echo "First we need to install some dependencies."
 
-apt install -y schroot deboostrap
+apt install -y schroot debootstrap
 
 echo "Creating folders"
 mkdir /srv/chroot
