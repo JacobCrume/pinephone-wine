@@ -27,6 +27,7 @@ chroot "/srv/chroot/debian-armhf" /debootstrap/debootstrap --second-stage
 
 echo "Creating configuration files"
 sleep 2
+cp .bashrc /home/mobian
 cp debian-armhf.conf /etc/schroot/chroot.d
 cp nssdatabases /etc/schroot/desktop/nssdatabases
 cp stateoverride /srv/chroot/debian-armhf/var/lib/dpkg/statoverride
