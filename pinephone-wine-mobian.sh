@@ -40,14 +40,17 @@ cat << EOF | schroot -c debian-armhf
 echo "You need to enter your password. This is used for the 32 bit arm root account"
 passwd
 echo "Updating chroot"
-apt update && apt upgrade
+apt update
 apt install -y git wget cmake build-essential python3
 apt install -y gcc-arm-linux-gnueabihf
+echo "Installing wine dependencies"
+apt install -y zenity
 adduser mobian
 su - mobian
 printf 'export LANGUAGE="C"\nexport LC_ALL="C"\nexport DISPLAY=:0' >> ~/.bashrc
 EOF
 cat << EOF | schroot -c debian-armhf
+su - mobian
 echo "Downloading Box86"
 git clone https://github.com/ptitSeb/box86
 cd box86
@@ -56,12 +59,11 @@ echo "Building Box86"
 mkdir build; cd build; cmake .. -DARM_DYNAREC=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo; make
 EOF
 cat << EOF | schroot -c debian-armhf
+su - mobian
 echo "Downloading wine"
 wget https://twisteros.com/wine.tgz
 echo "Extracting wine"
 tar zxvf wine.tgz
-echo "Installing wine dependencies"
-apt install -y zenity
 EOF
 
 echo "alias wine=schroot -c debian-armhf ~/box86/build/box86 ~/wine/bin/wine" >> ~/.bashrc
