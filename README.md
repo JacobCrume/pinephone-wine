@@ -11,7 +11,7 @@ Currently, only the Pinephone is supported. You must be running a fresh install 
 
 ## Installation Instructions
 1. Download and extract the latest script on the releases page to your Downloads folder.
-2. Run the script with this command: `cd Downloads/Pinephone-x86-Wine; sudo bash Downloads/pinephone-wine-*.sh`
+2. Run the script with this command: `cd Downloads/Pinephone-x86-Wine; sudo bash Downloads/pinephone-wine-*.sh | tee log.txt`
 3. This will guide you through the process of installing wine.
 
 ## Usage Instructions
