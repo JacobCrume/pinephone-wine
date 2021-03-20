@@ -34,9 +34,7 @@ cp stateoverride /srv/chroot/debian-armhf/var/lib/dpkg/statoverride
 
 echo "Entering chroot"
 sleep 2
-cat << EOF | schroot -c debian-armhf
-printf 'export LANGUAGE="C"\nexport LC_ALL="C"\nexport DISPLAY=:0' >> ~/.bashrc
-EOF
+cp .bashrc /srv/chroot/debian-armhf/home/mobian
 cat << EOF | schroot -c debian-armhf
 echo "You need to enter your password. This is used for the 32 bit arm root account"
 echo -e "1234\n1234\n" | passwd mobian
