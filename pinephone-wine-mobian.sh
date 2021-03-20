@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on you internet connection speed."
+echo "This script will install wine on your Pinephone. It should take less than 2 hours depending on your internet connection speed."
 echo "First we need to install some dependencies."
 sleep 5
 
@@ -39,14 +39,14 @@ printf 'export LANGUAGE="C"\nexport LC_ALL="C"\nexport DISPLAY=:0' >> ~/.bashrc
 EOF
 cat << EOF | schroot -c debian-armhf
 echo "You need to enter your password. This is used for the 32 bit arm root account"
-passwd
+echo -e "1234\n1234\n" | passwd mobian
 echo "Updating chroot"
 apt update
 apt install -y git wget cmake build-essential python3
 apt install -y gcc-arm-linux-gnueabihf
 echo "Installing wine dependencies"
 apt install -y zenity
-adduser mobian
+echo -e "1234\n1234" | adduser mobian
 su - mobian
 EOF
 cat << EOF | schroot -c debian-armhf
