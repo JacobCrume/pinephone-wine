@@ -1,7 +1,7 @@
 # Pinephone-x86-Wine
 Scripts and instructions to install x86 windows apps on the Pinephone.
 
-#### DO NOT RUN THIS SCRIPT IF YOU HAVE USED ANY OF MY OTHER SCRIPTS THAT ARE NOT CLEARLY STATED TO BE COMPATIBILE!!!
+#### DO NOT RUN THIS SCRIPT IF YOU HAVE USED ANY OF MY OTHER SCRIPTS THAT ARE NOT CLEARLY STATED TO BE COMPATIBILE!!! (Warning: Currently not working)
 
 ## Supported Platforms
 Currently, only the Pinephone is supported. You must be running a fresh install of one of the following operating systems for this script:
