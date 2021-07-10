@@ -5,7 +5,7 @@ Scripts and instructions to install x86 windows apps on the Pinephone.
 
 #### (Warning: Currently not working)
 
-I am currently waiting for Ptitseb to release box64, which would provide a much better and far less complicated user experience. until then, i would not recommend using any of these scripts.
+I am currently working on integrating box64, which would provide a much better and far less complicated user experience. Until then, i would not recommend using any of these scripts.
 
 ## Supported Platforms
 Currently, only the Pinephone is supported. You must be running a fresh install of one of the following operating systems for this script:
